@@ -20,4 +20,26 @@ public class GameScreen {
 
     private static final int WIDTH = 600;
     private static final int HEIGHT = 400;
+
+    public GameScreen(Pane root) {
+        this.root = root;
+        initializeStartScreen();
+        initializeGameOverScreen();
+    }
+
+    private void initializeStartScreen() {
+        titleText = new Text("SNAKE GAME");
+        titleText.setFill(Color.BLACK);
+        titleText.setFont(Font.font(40));
+        titleText.setX(WIDTH / 2 - 120);
+        titleText.setY(HEIGHT / 2 - 120);
+        root.getChildren().add(titleText);
+
+        nameInput = new TextField();
+        nameInput.setPromptText("Enter your name");
+        nameInput.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-font-size: 16px; -fx-border-color: black;");
+        nameInput.setLayoutX(WIDTH / 2 - 100);
+        nameInput.setLayoutY(HEIGHT / 2 - 60);
+        nameInput.setPrefWidth(200);
+        root.getChildren().add(nameInput);
 }
