@@ -1,5 +1,6 @@
 package com.example.projekt_sew_3;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -22,3 +23,9 @@ public class SnakeGame extends Application {
     private boolean gameStarted = false;
     private Random random = new Random();
     private Pane root;
+    private AnimationTimer gameLoop;
+    private GameScreen gameScreen;
+    private ScoreManager scoreManager;
+    private PlayerData playerData;
+    private DifficultyManager difficultyManager;
+    private ObstacleManager obstacleManager;
