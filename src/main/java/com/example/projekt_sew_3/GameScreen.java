@@ -49,4 +49,22 @@ public class GameScreen {
         startButton.setLayoutY(HEIGHT / 2 + 20);
         root.getChildren().add(startButton);
     }
-}
+
+    private void initializeGameOverScreen() {
+        gameOverText = new Text("GAME OVER");
+        gameOverText.setFill(Color.BLACK);
+        gameOverText.setFont(Font.font(40));
+        gameOverText.setX(WIDTH / 2 - 100);
+        gameOverText.setY(HEIGHT / 2 - 80);
+        gameOverText.setVisible(false);
+        root.getChildren().add(gameOverText);
+
+        playerNameText = new Text();
+        playerNameText.setFill(Color.BLACK);
+        playerNameText.setFont(Font.font(20));
+        playerNameText.setX(WIDTH / 2 - 80);
+        playerNameText.setY(HEIGHT / 2 - 40);
+        playerNameText.setVisible(false);
+        root.getChildren().add(playerNameText);
+
+    }
