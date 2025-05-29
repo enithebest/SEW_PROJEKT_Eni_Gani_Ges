@@ -42,4 +42,18 @@ public class DifficultyManager {
         root.getChildren().add(difficultySelector);
     }
 
+    public void showDifficultySelector() {
+        difficultyLabel.setVisible(true);
+        difficultySelector.setVisible(true);
+    }
+
+    public void hideDifficultySelector() {
+        difficultyLabel.setVisible(false);
+        difficultySelector.setVisible(false);
+    }
+
+    public String getSelectedDifficulty() {
+        return difficultySelector.getValue();
+    }
+
 }
