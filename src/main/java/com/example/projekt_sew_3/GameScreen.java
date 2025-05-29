@@ -49,4 +49,94 @@ public class GameScreen {
         startButton.setLayoutY(HEIGHT / 2 + 20);
         root.getChildren().add(startButton);
     }
+
+    private void initializeGameOverScreen() {
+        gameOverText = new Text("GAME OVER");
+        gameOverText.setFill(Color.BLACK);
+        gameOverText.setFont(Font.font(40));
+        gameOverText.setX(WIDTH / 2 - 100);
+        gameOverText.setY(HEIGHT / 2 - 80);
+        gameOverText.setVisible(false);
+        root.getChildren().add(gameOverText);
+
+        playerNameText = new Text();
+        playerNameText.setFill(Color.BLACK);
+        playerNameText.setFont(Font.font(20));
+        playerNameText.setX(WIDTH / 2 - 80);
+        playerNameText.setY(HEIGHT / 2 - 40);
+        playerNameText.setVisible(false);
+        root.getChildren().add(playerNameText);
+        scoreText = new Text();
+        scoreText.setFill(Color.BLACK);
+        scoreText.setFont(Font.font(20));
+        scoreText.setX(WIDTH / 2 - 60);
+        scoreText.setY(HEIGHT / 2 - 20);
+        scoreText.setVisible(false);
+        root.getChildren().add(scoreText);
+
+        highScoreText = new Text();
+        highScoreText.setFill(Color.BLACK);
+        highScoreText.setFont(Font.font(20));
+        highScoreText.setX(WIDTH / 2 - 80);
+        highScoreText.setY(HEIGHT / 2 + 10);
+        highScoreText.setVisible(false);
+        root.getChildren().add(highScoreText);
+
+        restartButton = new Button("Play Again");
+        restartButton.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-font-size: 20px;");
+        restartButton.setLayoutX(WIDTH / 2 - 60);
+        restartButton.setLayoutY(HEIGHT / 2 + 50);
+        restartButton.setVisible(false);
+        root.getChildren().add(restartButton);
+    }
+    public void showStartScreen() {
+        titleText.setVisible(true);
+        nameInput.setVisible(true);
+        startButton.setVisible(true);
+        gameOverText.setVisible(false);
+        playerNameText.setVisible(false);
+        scoreText.setVisible(false);
+        highScoreText.setVisible(false);
+        restartButton.setVisible(false);
+    }
+
+    public void hideStartScreen() {
+        titleText.setVisible(false);
+        nameInput.setVisible(false);
+        startButton.setVisible(false);
+    }
+
+    public void showGameOver(String playerName, int currentScore, int highScore) {
+        gameOverText.setVisible(true);
+        playerNameText.setText("Player: " + playerName);
+        playerNameText.setVisible(true);
+        scoreText.setText("Score: " + currentScore);
+        scoreText.setVisible(true);
+        highScoreText.setText("High Score: " + highScore);
+        highScoreText.setVisible(true);
+        restartButton.setVisible(true);
+    }
+
+    public void hideGameOver() {
+        gameOverText.setVisible(false);
+        playerNameText.setVisible(false);
+        scoreText.setVisible(false);
+        highScoreText.setVisible(false);
+        restartButton.setVisible(false);
+    }
+
+    public Button getStartButton() {
+        return startButton;
+    }
+
+    public Button getRestartButton() {
+        return restartButton;
+    }
+
+    public String getPlayerName() {
+        String name = nameInput.getText().trim();
+        return name.isEmpty() ? "Player" : name;
+    }
+}
+
 }
