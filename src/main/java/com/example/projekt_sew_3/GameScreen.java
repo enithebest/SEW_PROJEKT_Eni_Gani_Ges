@@ -66,5 +66,29 @@ public class GameScreen {
         playerNameText.setY(HEIGHT / 2 - 40);
         playerNameText.setVisible(false);
         root.getChildren().add(playerNameText);
+        scoreText = new Text();
+        scoreText.setFill(Color.BLACK);
+        scoreText.setFont(Font.font(20));
+        scoreText.setX(WIDTH / 2 - 60);
+        scoreText.setY(HEIGHT / 2 - 20);
+        scoreText.setVisible(false);
+        root.getChildren().add(scoreText);
 
+        highScoreText = new Text();
+        highScoreText.setFill(Color.BLACK);
+        highScoreText.setFont(Font.font(20));
+        highScoreText.setX(WIDTH / 2 - 80);
+        highScoreText.setY(HEIGHT / 2 + 10);
+        highScoreText.setVisible(false);
+        root.getChildren().add(highScoreText);
+
+        restartButton = new Button("Play Again");
+        restartButton.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-font-size: 20px;");
+        restartButton.setLayoutX(WIDTH / 2 - 60);
+        restartButton.setLayoutY(HEIGHT / 2 + 50);
+        restartButton.setVisible(false);
+        root.getChildren().add(restartButton);
     }
+
+
+}
