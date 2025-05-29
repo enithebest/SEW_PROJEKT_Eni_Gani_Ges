@@ -89,6 +89,54 @@ public class GameScreen {
         restartButton.setVisible(false);
         root.getChildren().add(restartButton);
     }
+    public void showStartScreen() {
+        titleText.setVisible(true);
+        nameInput.setVisible(true);
+        startButton.setVisible(true);
+        gameOverText.setVisible(false);
+        playerNameText.setVisible(false);
+        scoreText.setVisible(false);
+        highScoreText.setVisible(false);
+        restartButton.setVisible(false);
+    }
 
+    public void hideStartScreen() {
+        titleText.setVisible(false);
+        nameInput.setVisible(false);
+        startButton.setVisible(false);
+    }
+
+    public void showGameOver(String playerName, int currentScore, int highScore) {
+        gameOverText.setVisible(true);
+        playerNameText.setText("Player: " + playerName);
+        playerNameText.setVisible(true);
+        scoreText.setText("Score: " + currentScore);
+        scoreText.setVisible(true);
+        highScoreText.setText("High Score: " + highScore);
+        highScoreText.setVisible(true);
+        restartButton.setVisible(true);
+    }
+
+    public void hideGameOver() {
+        gameOverText.setVisible(false);
+        playerNameText.setVisible(false);
+        scoreText.setVisible(false);
+        highScoreText.setVisible(false);
+        restartButton.setVisible(false);
+    }
+
+    public Button getStartButton() {
+        return startButton;
+    }
+
+    public Button getRestartButton() {
+        return restartButton;
+    }
+
+    public String getPlayerName() {
+        String name = nameInput.getText().trim();
+        return name.isEmpty() ? "Player" : name;
+    }
+}
 
 }
