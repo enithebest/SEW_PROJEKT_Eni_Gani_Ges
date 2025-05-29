@@ -42,4 +42,11 @@ public class GameScreen {
         nameInput.setLayoutY(HEIGHT / 2 - 60);
         nameInput.setPrefWidth(200);
         root.getChildren().add(nameInput);
+
+        startButton = new Button("Start Game");
+        startButton.setStyle("-fx-background-color: green; -fx-text-fill: white; -fx-font-size: 20px;");
+        startButton.setLayoutX(WIDTH / 2 - 60);
+        startButton.setLayoutY(HEIGHT / 2 + 20);
+        root.getChildren().add(startButton);
+    }
 }
