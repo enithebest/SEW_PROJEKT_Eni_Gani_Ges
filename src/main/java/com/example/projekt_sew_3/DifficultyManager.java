@@ -21,4 +21,25 @@ public class DifficultyManager {
         this.root = root;
         initializeDifficultySelector();
     }
+
+    /**
+     * Initialize the difficulty selection UI
+     */
+    private void initializeDifficultySelector() {
+        difficultyLabel = new Text("Select Difficulty:");
+        difficultyLabel.setFill(Color.BLACK);
+        difficultyLabel.setFont(Font.font(16));
+        difficultyLabel.setX(WIDTH / 2 - 80);
+        difficultyLabel.setY(HEIGHT / 2 - 60);
+        root.getChildren().add(difficultyLabel);
+
+        difficultySelector = new ComboBox<>();
+        difficultySelector.getItems().addAll("Easy", "Medium", "Hard");
+        difficultySelector.setValue("Medium"); // Default difficulty
+        difficultySelector.setStyle("-fx-background-color: white; -fx-text-fill: black; -fx-font-size: 14px;");
+        difficultySelector.setLayoutX(WIDTH / 2 - 60);
+        difficultySelector.setLayoutY(HEIGHT / 2 - 50);
+        root.getChildren().add(difficultySelector);
+    }
+
 }
