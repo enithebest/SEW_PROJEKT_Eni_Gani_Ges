@@ -43,3 +43,21 @@ public class SnakeGame extends Application {
         obstacleManager = new ObstacleManager(root);
         gameScreen.getStartButton().setOnAction(e -> startGame());
         gameScreen.getRestartButton().setOnAction(e -> restartGame());
+
+        gameLoop = new AnimationTimer() {
+            private long lastUpdate = 0;
+            @Override
+            public void handle(long now) {
+                if (now - lastUpdate >= difficultyManager.getGameSpeed()) {
+                    update();
+                    lastUpdate = now;
+                }
+            }
+        };
+
+        scene.setOnKeyPressed(this::handleKeyPress);
+
+        primaryStage.setTitle("Snake Game");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
