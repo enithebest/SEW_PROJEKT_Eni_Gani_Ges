@@ -56,4 +56,19 @@ public class DifficultyManager {
         return difficultySelector.getValue();
     }
 
+    /**
+     * Get the game speed based on selected difficulty
+     * @return The delay in nanoseconds between game updates
+     */
+    public long getGameSpeed() {
+        switch (getSelectedDifficulty()) {
+            case "Easy":
+                return 150_000_000; // 150ms delay
+            case "Hard":
+                return 50_000_000;  // 50ms delay
+            case "Medium":
+            default:
+                return 100_000_000; // 100ms delay
+        }
+    }
 }
