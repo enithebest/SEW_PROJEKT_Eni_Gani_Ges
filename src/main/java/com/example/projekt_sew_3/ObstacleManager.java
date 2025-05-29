@@ -23,6 +23,7 @@ public class ObstacleManager {
 
         /**
          * Constructor - Initialize obstacle manager
+         *
          * @param root The root pane to add obstacles to
          */
         public ObstacleManager(Pane root) {
@@ -65,5 +66,42 @@ public class ObstacleManager {
             }
         }
 
+        /**
+         * Remove all obstacles from the game
+         */
+        public void clearObstacles() {
+            for (Rectangle obstacle : obstacles) {
+                root.getChildren().remove(obstacle);
+            }
+            obstacles.clear();
+        }
+
+        /**
+         * Check if a position collides with any obstacle
+         *
+         * @param x X coordinate to check
+         * @param y Y coordinate to check
+         * @return true if there is a collision, false otherwise
+         */
+        public boolean checkCollision(double x, double y) {
+            for (Rectangle obstacle : obstacles) {
+                if (obstacle.getX() == x && obstacle.getY() == y) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Check if a position is valid (within bounds and not occupied by an obstacle)
+         *
+         * @param x X coordinate to check
+         * @param y Y coordinate to check
+         * @return true if the position is valid, false otherwise
+         */
+        public boolean isPositionValid(double x, double y) {
+            return x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT && !checkCollision(x, y);
+        }
 
     }
+}
