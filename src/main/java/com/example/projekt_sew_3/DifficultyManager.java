@@ -12,4 +12,13 @@ public class DifficultyManager {
     private ComboBox<String> difficultySelector;
     private Text difficultyLabel;
     private Pane root;
+
+    /**
+     * Constructor - Initialize difficulty manager
+     * @param root The root pane to add UI elements to
+     */
+    public DifficultyManager(Pane root) {
+        this.root = root;
+        initializeDifficultySelector();
+    }
 }
