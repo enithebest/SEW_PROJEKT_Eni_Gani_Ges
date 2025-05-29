@@ -2,8 +2,11 @@ package com.example.projekt_sew_3;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,3 +32,15 @@ public class SnakeGame extends Application {
     private PlayerData playerData;
     private DifficultyManager difficultyManager;
     private ObstacleManager obstacleManager;
+    @Override
+    public void start(Stage primaryStage) {
+        root = new Pane();
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
+        scene.setFill(Color.BLACK);
+
+        gameScreen = new GameScreen(root);
+        scoreManager = new ScoreManager(root);
+        difficultyManager = new DifficultyManager(root);
+        obstacleManager = new ObstacleManager(root);
+        gameScreen.getStartButton().setOnAction(e -> startGame());
+        gameScreen.getRestartButton().setOnAction(e -> restartGame());
