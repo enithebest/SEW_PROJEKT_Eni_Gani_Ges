@@ -3,6 +3,7 @@ package com.example.projekt_sew_3;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -78,3 +79,15 @@ public class HelloController {
         // Game variables
         int[] direction = {0}; // 0: right, 1: down, 2: left, 3: up
         boolean[] gameOver = {false};
+        // Handle key events
+        scene.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.RIGHT && direction[0] != 2) {
+                direction[0] = 0;
+            } else if (event.getCode() == KeyCode.DOWN && direction[0] != 3) {
+                direction[0] = 1;
+            } else if (event.getCode() == KeyCode.LEFT && direction[0] != 0) {
+                direction[0] = 2;
+            } else if (event.getCode() == KeyCode.UP && direction[0] != 1) {
+                direction[0] = 3;
+            }
+        });
