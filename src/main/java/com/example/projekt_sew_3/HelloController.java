@@ -160,4 +160,13 @@ public class HelloController {
         // Start the game with selected difficulty
         String difficulty = difficultyComboBox.getValue();
         // TODO: Implement game start logic
+    }@FXML
+    protected void onButtonHover() {
+        startButton.setStyle("-fx-background-color: #45a049; -fx-text-fill: white; -fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-radius: 5px; -fx-cursor: hand;");
     }
+
+    @FXML
+    protected void onButtonExit() {
+        startButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 18px; -fx-padding: 10px 20px; -fx-background-radius: 5px; -fx-cursor: hand;");
+    }
+}
