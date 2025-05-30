@@ -1,5 +1,6 @@
 package com.example.projekt_sew_3;
 
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -91,3 +92,19 @@ public class HelloController {
                 direction[0] = 3;
             }
         });
+        // Game loop
+        AnimationTimer gameLoop = new AnimationTimer() {
+            private long lastUpdate = 0;
+            @Override
+            public void handle(long now) {
+                if (now - lastUpdate >= 100_000_000) { // 100ms delay
+                    if (!gameOver[0]) {
+                        // Move the snake
+                        double headX = snake.get(0).getX();
+                        double headY = snake.get(0).getY();
+                        switch (direction[0]) {
+                            case 0: headX += unitSize; break; // right
+                            case 1: headY += unitSize; break; // down
+                            case 2: headX -= unitSize; break; // left
+                            case 3: headY -= unitSize; break; // up
+                        }
