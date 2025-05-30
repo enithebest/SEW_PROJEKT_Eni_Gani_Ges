@@ -12,7 +12,6 @@ import javafx.scene.input.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 /**
  * Main game class for the Snake Game
  */
