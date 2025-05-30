@@ -108,3 +108,16 @@ public class HelloController {
                             case 2: headX -= unitSize; break; // left
                             case 3: headY -= unitSize; break; // up
                         }
+                        // Check for collision with walls
+                        if (headX < 0 || headX >= 600 || headY < 0 || headY >= 400) {
+                            gameOver[0] = true;
+                            return;
+                        }
+
+                        // Check for collision with self
+                        for (Rectangle segment : snake) {
+                            if (segment.getX() == headX && segment.getY() == headY) {
+                                gameOver[0] = true;
+                                return;
+                            }
+                        }
