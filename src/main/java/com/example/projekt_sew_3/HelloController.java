@@ -143,4 +143,21 @@ public class HelloController {
                     lastUpdate = now;
                 }
             }
-        };
+        }; gameLoop.start();
+
+        snakeStage.setTitle("Snake Game");
+        snakeStage.setScene(scene);
+        snakeStage.show();
+    }
+
+    @FXML
+    protected void onStartButtonClick() {
+        String playerName = playerNameField.getText().trim();
+        if (playerName.isEmpty()) {
+            playerName = "Player";
+        }
+
+        // Start the game with selected difficulty
+        String difficulty = difficultyComboBox.getValue();
+        // TODO: Implement game start logic
+    }
