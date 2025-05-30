@@ -121,3 +121,26 @@ public class HelloController {
                                 return;
                             }
                         }
+                        // Create new head
+                        Rectangle newHead = new Rectangle(unitSize, unitSize);
+                        newHead.setFill(Color.BLACK);
+                        newHead.setX(headX);
+                        newHead.setY(headY);
+                        snake.add(0, newHead);
+                        root.getChildren().add(newHead);
+
+                        // Check if food is eaten
+                        if (headX == food.getX() && headY == food.getY()) {
+                            double newFoodX = random.nextInt(30) * unitSize;
+                            double newFoodY = random.nextInt(20) * unitSize;
+                            food.setX(newFoodX);
+                            food.setY(newFoodY);
+                        } else {
+                            Rectangle tail = snake.remove(snake.size() - 1);
+                            root.getChildren().remove(tail);
+                        }
+                    }
+                    lastUpdate = now;
+                }
+            }
+        };
