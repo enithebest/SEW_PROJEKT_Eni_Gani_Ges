@@ -6,13 +6,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-<<<<<<< HEAD
 import javafx.animation.AnimationTimer;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-=======
-
->>>>>>> eni
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -40,10 +36,7 @@ public class SnakeGame extends Application {
     private PlayerData playerData;
     private DifficultyManager difficultyManager;
     private ObstacleManager obstacleManager;
-<<<<<<< HEAD
 
-=======
->>>>>>> eni
     @Override
     public void start(Stage primaryStage) {
         root = new Pane();
@@ -55,7 +48,6 @@ public class SnakeGame extends Application {
         difficultyManager = new DifficultyManager(root);
         obstacleManager = new ObstacleManager(root);
         gameScreen.getStartButton().setOnAction(e -> startGame());
-<<<<<<< HEAD
         gameScreen.getRestartButton().setOnAction(e -> restartGame());
 
         gameLoop = new AnimationTimer() {
@@ -202,6 +194,3 @@ public class SnakeGame extends Application {
         launch(args);
     }
 }
-=======
-        gameScreen.getRestartButton().setOnAction(e -> restartGame());
->>>>>>> eni
